@@ -21,6 +21,9 @@ SRC=ft_split.c \
 	ft_strjoin.c \
 	ft_strnstr.c \
 	ft_swap.c \
+	ft_array.c \
+	ft_fd.c \
+	ft_strrepl.c \
 	$(PRINTF) \
 	$(GNL)
 OBJ= $(SRC:.c=.o)
