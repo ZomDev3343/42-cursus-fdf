@@ -1,6 +1,8 @@
 SRC=main.c \
 	map.c \
 	map_2.c \
+	input.c \
+	render.c \
 	setup.c
 OBJ=${SRC:.c=.o}
 NAME=fdf

@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/01/17 17:41:59 by truello          ###   ########.fr       */
+/*   Updated: 2024/01/18 16:34:04 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,14 @@ int		parse_map_dimension(char *map_file, int *width, int *height);
 int		fill_grid_values(t_map *map, char *map_file);
 t_map	*parse_map(char *map_file);
 void	print_map_infos(t_map *map);
+
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*mlx_win;
+	t_map	*map;
+}	t_vars;
+
+void	manage_input(int keycode, t_vars *vars);
 
 #endif
