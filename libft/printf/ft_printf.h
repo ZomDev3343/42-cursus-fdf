@@ -24,7 +24,7 @@ typedef unsigned char	t_bool;
 
 typedef struct s_format
 {
-	char		specifier;
+	int		specifier;
 }	t_format;
 
 int				ft_printf(const char *str, ...);

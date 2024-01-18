@@ -35,7 +35,7 @@ static int	print_format(t_format *format, va_list *args)
 
 static int	parse_format(const char *str, va_list *args, int *total)
 {
-	unsigned char	i;
+	int	i;
 	t_format		format;
 
 	i = 0;

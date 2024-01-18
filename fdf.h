@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "libft/ft.h"
-# include "minilibx_macos/mlx.h"
+# include "mlx/mlx.h"
 
 /* Map */
 

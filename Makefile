@@ -6,27 +6,27 @@ SRC=main.c \
 	setup.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
-FT=libft/libft.a
-MLX=minilibx_macos/libmlx.a
-LIBS=-framework OpenGL -framework AppKit -lm
+FT=./libft/libft.a
+MLX=./mlx/libmlx.a
+LIBS=-I/usr/include -lXext -lX11 -lm -lz
 FLAGS=-Wall -Werror -Wextra
 
 all:
 	make -C libft
-	make -C minilibx_macos
+	make -C mlx
 	make $(NAME)
 
 %.o: %.c
 	cc -c $(FT) $(MLX) $(LIBS) $< -o $@
 
 $(NAME): $(FT) $(OBJ)
-	cc $(LIBS) $(FT) $(MLX) $(OBJ) -o $(NAME)
+	cc $(OBJ) $(FT) $(MLX) $(LIBS) -o $(NAME)
 
 $(FT):
 	make -C libft
 
 $(MLX):
-	make -C minilibx_macos
+	make -C mlx
 
 norm: $(SRC)
 	norminette $<
@@ -34,12 +34,12 @@ norm: $(SRC)
 clean:
 	rm -rf *.o
 	make clean -C libft
-	make clean -C minilibx_macos
+	make clean -C mlx
 
 fclean: clean
 	rm -rf $(NAME)
 	make fclean -C libft
-	make fclean -C minilibx_macos
+	make fclean -C mlx
 
 re: clean all
 
