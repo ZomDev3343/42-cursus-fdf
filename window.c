@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                           :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,10 +12,8 @@
 
 #include "fdf.h"
 
-int	manage_input(int keycode, t_vars *vars)
+void    close_window(t_vars *vars)
 {
-	ft_printf("Keycode : %d\n", keycode);
-	if (keycode == 65307)
-		return (close_window(vars), 0);
-	return (0);
+    mlx_destroy_window(vars->mlx, vars->mlx_win);
+    exit(0);
 }

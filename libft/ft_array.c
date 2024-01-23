@@ -34,7 +34,7 @@ t_bool	is_int_parts(char **parts)
 
 	i = -1;
 	while (parts[++i])
-		if (!ft_strcmp(parts[i], "0") && ft_atoi(parts[i]) == 0)
+		if (!ft_strncmp(parts[i], "0", 1) && ft_atoi(parts[i]) == 0)
 			return (FALSE);
 	return (TRUE);
 }

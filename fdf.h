@@ -15,6 +15,7 @@
 
 # include "libft/ft.h"
 # include "mlx/mlx.h"
+# include "math.h"
 
 /* Map */
 
@@ -39,6 +40,7 @@ typedef struct s_vars
 	t_map	*map;
 }	t_vars;
 
-void	manage_input(int keycode, t_vars *vars);
+int		manage_input(int keycode, t_vars *vars);
+void	close_window(t_vars *vars);
 
 #endif

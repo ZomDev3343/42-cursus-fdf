@@ -16,8 +16,8 @@ void	free_map(t_map *map)
 {
 	int	i;
 
-	i = -1;
-	while (++i < map->width)
+	i = map->width;
+	while (i-- > 0)
 	{
 		if (map->grid[i])
 			free(map->grid[i]);
@@ -62,7 +62,6 @@ t_map	*parse_map(char *map_file)
 	map = create_map(width, height);
 	if (!map)
 		return (FALSE);
-	fill_grid_values(map, map_file);
 	if (!fill_grid_values(map, map_file))
 		return (free_map(map), NULL);
 	return (map);

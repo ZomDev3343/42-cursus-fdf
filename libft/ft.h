@@ -48,7 +48,7 @@ void	ft_swap_int(int *a, int *b);
 t_bool	has_int_parts(char *line, char delimiter);
 t_bool	is_int_parts(char **parts);
 
-size_t	get_file_size(char *file_path);
+int	get_file_size(char *file_path);
 char	*get_file_content(char *file_path);
 
 #endif

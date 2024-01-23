@@ -19,6 +19,8 @@ static int	get_parts_amt(char *line)
 
 	i = 0;
 	parts = ft_split(line, ' ');
+	if (!parts)
+		return (0);
 	while (parts[i])
 		i++;
 	free_parts(parts);
@@ -64,7 +66,7 @@ int	fill_grid_values(t_map *map, char *map_file)
 	ft_strrepl(map_str, '\n', ' ');
 	parts = ft_split(map_str, ' ');
 	while (parts[++i])
-		map->grid[i / map->width][i % map->width] = ft_atoi(parts[i]);
+		map->grid[i % map->width][i / map->width] = ft_atoi(parts[i]);
 	free_parts(parts);
 	free(map_str);
 	return (TRUE);
@@ -77,11 +79,12 @@ void	print_map_infos(t_map *map)
 
 	i = -1;
 	j = -1;
+	ft_printf("First elem : %d\n", map->grid[0][0]);
 	ft_printf("Height : %d, Width : %d\n", map->height, map->width);
 	while (++i < map->height)
 	{
 		while (++j < map->width)
-			ft_printf("%d ", map->grid[i][j]);
+			ft_printf("%d ", map->grid[j][i]);
 		j = -1;
 		ft_printf("\n");
 	}

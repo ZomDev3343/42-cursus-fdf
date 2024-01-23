@@ -3,6 +3,7 @@ SRC=main.c \
 	map_2.c \
 	input.c \
 	render.c \
+	window.c \
 	setup.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
@@ -17,7 +18,7 @@ all:
 	make $(NAME)
 
 %.o: %.c
-	cc -c $(FT) $(MLX) $(LIBS) $< -o $@
+	cc -c $(FT) $(MLX) $(LIBS) -g $< -o $@
 
 $(NAME): $(FT) $(OBJ)
 	cc $(OBJ) $(FT) $(MLX) $(LIBS) -o $(NAME)
