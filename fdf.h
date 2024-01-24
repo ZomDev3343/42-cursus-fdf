@@ -33,14 +33,51 @@ int		fill_grid_values(t_map *map, char *map_file);
 t_map	*parse_map(char *map_file);
 void	print_map_infos(t_map *map);
 
+typedef struct s_interact
+{
+	int	x;
+	int	y;
+	int	size_x;
+	int	size_y;
+}	t_interact;
+
 typedef struct s_vars
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_map	*map;
+	void		*mlx;
+	void		*mlx_win;
+	t_map		*map;
+	int			win_width;
+	int			win_height;
+	t_interact	*cam;
 }	t_vars;
 
-int		manage_input(int keycode, t_vars *vars);
-void	close_window(t_vars *vars);
+typedef struct s_img
+{
+    void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	t_vars	*vars;
+}   t_img;
+
+int			manage_input(int keycode, t_vars *vars);
+
+int			close_window(t_vars *vars);
+int			put_hooks(t_vars *vars);
+
+/* Render */
+int			render_frame(t_vars *vars);
+
+/* Draw */
+void    	draw_pixel(t_img *img, int x, int y, int color);
+void    	draw_square(t_img *img, int x, int y, int size);
+
+/* Interact */
+t_interact	create_interact(int x, int y, int size_x, int size_y);
+void		center_pos(t_vars *vars, t_interact *obj);
+
+/* Utils */
+void		free_vars(t_vars *vars);
 
 #endif

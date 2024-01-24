@@ -12,25 +12,32 @@
 
 #include "fdf.h"
 
+static void	setup_vars(t_vars *vars)
+{
+	vars->win_width = 800;
+	vars->win_height = 600;
+}
+
 int	main(int ac, char **av, char **env)
 {
-	t_vars	vars;
+	t_vars	*vars;
 
 	if (ac != 1)
 	{
-		vars.map = parse_map(av[1]);
-		if (!vars.map)
-			return (ft_printf("Error while parsing the map!\n"), 1);
+		vars = (t_vars *) ft_calloc(1, sizeof(t_vars));
+		setup_vars(vars);
+		vars->map = parse_map(av[1]);
+		if (!vars->map)
+			return (free(vars), ft_printf("Error while parsing the map!\n"), 1);
 		ft_printf("Parsing OK!\n");
-		print_map_infos(vars.map);
-		free_map(vars.map);
-		/*vars->mlx = mlx_init();
+		print_map_infos(vars->map);
+		vars->mlx = mlx_init();
 		if (!vars->mlx)
 			return (1);
-		vars->mlx_win = mlx_new_window(vars->mlx, 800, 600, "FDF");
-		mlx_hook(vars->mlx_win, 2, 1L<<0, manage_input, vars);
-		mlx_hook(vars->mlx_win, 17, 1L<<0, close, vars);
-		mlx_loop(vars->mlx);*/
+		vars->mlx_win = mlx_new_window(vars->mlx, vars->win_width,
+			vars->win_height, "FDF");
+		put_hooks(vars);
+		mlx_loop(vars->mlx);
 	}
 	return (0);
 }

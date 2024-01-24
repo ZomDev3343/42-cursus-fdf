@@ -4,6 +4,8 @@ SRC=main.c \
 	input.c \
 	render.c \
 	window.c \
+	utils.c \
+	draw.c \
 	setup.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
@@ -28,9 +30,6 @@ $(FT):
 
 $(MLX):
 	make -C mlx
-
-norm: $(SRC)
-	norminette $<
 
 clean:
 	rm -rf *.o
