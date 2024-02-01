@@ -33,6 +33,13 @@ int		fill_grid_values(t_map *map, char *map_file);
 t_map	*parse_map(char *map_file);
 void	print_map_infos(t_map *map);
 
+typedef struct s_vector
+{
+    int x;
+    int y;
+    int z;
+}   t_vector;
+
 typedef struct s_interact
 {
 	int	x;
@@ -76,6 +83,17 @@ void    	draw_square(t_img *img, int x, int y, int size);
 /* Interact */
 t_interact	create_interact(int x, int y, int size_x, int size_y);
 void		center_pos(t_vars *vars, t_interact *obj);
+
+/* Vector */
+
+t_vector	make_vector(int x, int y, int z);
+void		add_vector(t_vector *v1, t_vector *v2);
+void		mult_vector(t_vector *v1, t_vector *v2);
+
+/* Matrix */
+
+t_vector	*make_matrix3(t_vector x, t_vector y, t_vector z);
+t_vector	*add_matrix(t_vector *m1, t_vector *m2);
 
 /* Utils */
 void		free_vars(t_vars *vars);
