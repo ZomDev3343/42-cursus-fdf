@@ -24,6 +24,7 @@ static void render_map(t_img *img)
     while (++i < map->width * map->height)
         draw_pixel(img, 100 + padding * (i % map->width),
           100 + padding * (i / map->width), 0xFFFFFFFF);
+    draw_line(img, make_vector(100, 100, 0), make_vector(200, 150, 0));
 }
 
 static void render_fdf(t_img *img)

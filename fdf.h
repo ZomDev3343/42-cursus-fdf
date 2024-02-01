@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/01/18 16:34:04 by truello          ###   ########.fr       */
+/*   Updated: 2024/02/01 16:18:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int			render_frame(t_vars *vars);
 /* Draw */
 void    	draw_pixel(t_img *img, int x, int y, int color);
 void    	draw_square(t_img *img, int x, int y, int size);
+void		draw_line(t_img *img, t_vector from, t_vector to);
 
 /* Interact */
 t_interact	create_interact(int x, int y, int size_x, int size_y);
@@ -93,7 +94,7 @@ void		mult_vector(t_vector *v1, t_vector *v2);
 /* Matrix */
 
 t_vector	*make_matrix3(t_vector x, t_vector y, t_vector z);
-t_vector	*add_matrix(t_vector *m1, t_vector *m2);
+void		add_matrix(t_vector *m1, t_vector *m2);
 
 /* Utils */
 void		free_vars(t_vars *vars);
