@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                              :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/01/18 16:34:04 by truello          ###   ########.fr       */
+/*   Created: 2024/02/05 15:20:28 by tohma             #+#    #+#             */
+/*   Updated: 2024/02/05 15:21:54 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    free_vars(t_vars *vars)
+void	free_vars(t_vars *vars)
 {
-    free_map(vars->map);
-    free(vars->mlx);
-    free(vars);
+	free_map(vars->map);
+	free(vars->mlx);
+	free(vars);
 }

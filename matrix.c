@@ -3,34 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   matrix.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:18:54 by marvin            #+#    #+#             */
-/*   Updated: 2024/02/01 16:22:15 by marvin           ###   ########.fr       */
+/*   Updated: 2024/02/05 14:34:26 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_vector	*make_matrix3(t_vector x, t_vector y, t_vector z)
+t_mat	make_matrix3(t_vector x, t_vector y, t_vector z)
 {
-	t_vector matrix[3];
+	t_mat	matrix;
 
-	matrix[0] = x;
-	matrix[1] = y;
-	matrix[2] = z;
+	matrix.x = x;
+	matrix.y = y;
+	matrix.z = z;
 	return (matrix);
 }
 
-void		add_matrix(t_vector *m1, t_vector *m2)
+void	add_matrix(t_mat *m1, t_mat *m2)
 {
-	int i;
+	add_vector(&(m1->x), &(m2->x));
+	add_vector(&(m1->y), &(m2->y));
+	add_vector(&(m1->z), &(m2->z));
+}
 
-	i = -1;
-	while (++i < 3)
-	{
-		m1[i].x += m2[i].x;
-		m1[i].y += m2[i].y;
-		m1[i].z += m2[i].z;
-	}
+void	mul_mat(t_mat *m, t_vector *v)
+{
+	
 }

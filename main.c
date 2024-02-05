@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:12 by truello           #+#    #+#             */
-/*   Updated: 2024/01/18 17:06:46 by truello          ###   ########.fr       */
+/*   Updated: 2024/02/05 14:33:25 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av, char **env)
 
 	if (ac != 1)
 	{
-		vars = (t_vars *) ft_calloc(1, sizeof(t_vars));
+		vars = (t_vars *)ft_calloc(1, sizeof(t_vars));
 		setup_vars(vars);
 		vars->map = parse_map(av[1]);
 		if (!vars->map)
@@ -35,7 +35,7 @@ int	main(int ac, char **av, char **env)
 		if (!vars->mlx)
 			return (1);
 		vars->mlx_win = mlx_new_window(vars->mlx, vars->win_width,
-			vars->win_height, "FDF");
+				vars->win_height, "FDF");
 		put_hooks(vars);
 		mlx_loop(vars->mlx);
 	}

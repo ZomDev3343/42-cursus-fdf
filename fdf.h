@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/01 16:18:47 by marvin           ###   ########.fr       */
+/*   Updated: 2024/02/02 17:01:10 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ typedef struct s_vector
     int z;
 }   t_vector;
 
+typedef struct s_mat
+{
+	t_vector	x;
+	t_vector	y;
+	t_vector	z;
+}	t_mat;
+
 typedef struct s_interact
 {
 	int	x;
@@ -68,10 +75,23 @@ typedef struct s_img
 	t_vars	*vars;
 }   t_img;
 
+typedef struct s_camera
+{
+    int fov;
+    int far;
+    int aspect;
+	int	angle;
+    int x;
+    int y;
+}   t_camera;
+
 int			manage_input(int keycode, t_vars *vars);
 
 int			close_window(t_vars *vars);
 int			put_hooks(t_vars *vars);
+
+/* Camera */
+t_camera	make_camera(void);
 
 /* Render */
 int			render_frame(t_vars *vars);
@@ -89,12 +109,12 @@ void		center_pos(t_vars *vars, t_interact *obj);
 
 t_vector	make_vector(int x, int y, int z);
 void		add_vector(t_vector *v1, t_vector *v2);
-void		mult_vector(t_vector *v1, t_vector *v2);
+void		mult_vector(t_vector *v1, int n);
 
 /* Matrix */
 
-t_vector	*make_matrix3(t_vector x, t_vector y, t_vector z);
-void		add_matrix(t_vector *m1, t_vector *m2);
+t_mat		make_matrix3(t_vector x, t_vector y, t_vector z);
+void		add_matrix(t_mat *m1, t_mat *m2);
 
 /* Utils */
 void		free_vars(t_vars *vars);
