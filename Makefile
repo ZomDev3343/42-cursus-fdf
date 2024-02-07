@@ -8,6 +8,7 @@ SRC=main.c \
 	draw.c \
 	vector.c \
 	matrix.c \
+	camera.c \
 	setup.c
 OBJ=${SRC:.c=.o}
 NAME=fdf

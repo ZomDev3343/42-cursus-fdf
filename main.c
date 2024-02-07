@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:12 by truello           #+#    #+#             */
-/*   Updated: 2024/02/05 14:33:25 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/06 14:43:10 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av, char **env)
 
 	if (ac != 1)
 	{
-		vars = (t_vars *)ft_calloc(1, sizeof(t_vars));
+		vars = (t_vars *) ft_calloc(1, sizeof(t_vars));
 		setup_vars(vars);
 		vars->map = parse_map(av[1]);
 		if (!vars->map)

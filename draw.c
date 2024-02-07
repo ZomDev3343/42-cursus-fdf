@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:17:50 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/05 15:18:22 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/06 12:56:29 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	draw_square(t_img *img, int x, int y, int size)
 	draw_pixel(img, x + size, y + size, color);
 }
 
+/* TODO Fixer quand dx = 0 */
 void	draw_line(t_img *img, t_vector from, t_vector to)
 {
 	int		dx;
