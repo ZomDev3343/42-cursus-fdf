@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/08 12:34:48 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/08 13:10:46 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 # include "math.h"
 
 /* Map */
-
-typedef struct s_map
-{
-	int	width;
-	int	height;
-	int	**grid;
-}	t_map;
 
 typedef struct s_vector
 {
@@ -39,6 +32,14 @@ typedef struct s_mat
 	t_vector	y;
 	t_vector	z;
 }	t_mat;
+
+typedef struct s_map
+{
+	int			width;
+	int			height;
+	int			**grid;
+	t_vector	*points;
+}	t_map;
 
 typedef struct s_interact
 {
@@ -79,7 +80,6 @@ typedef struct s_camera
 }	t_camera;
 
 void		free_map(t_map *map);
-t_map		*create_map(int width, int height);
 int			parse_map_dimension(char *map_file, int *width, int *height);
 int			fill_grid_values(t_map *map, char *map_file);
 t_map		*parse_map(char *map_file);

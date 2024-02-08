@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:29:16 by truello           #+#    #+#             */
-/*   Updated: 2024/02/08 12:36:06 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/08 13:14:53 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	free_map(t_map *map)
 	while (i-- > 0)
 	{
 		if (map->grid[i])
-			free(map->grid[i]);
+			ft_free(map->grid[i]);
 	}
-	free(map->grid);
-	free(map);
+	ft_free(map->grid);
+	ft_free(map->points);
+	ft_free(map);
 }
 
-t_map	*create_map(int width, int height)
+static t_map	*create_map(int width, int height)
 {
 	int		**grid;
 	t_map	*map;
@@ -51,6 +52,25 @@ t_map	*create_map(int width, int height)
 	return (map);
 }
 
+static t_vector	*convert_map_to_points(t_map *map)
+{
+	t_vector	*points;
+	int			i;
+
+	points = (t_vector *) ft_calloc(map->height * map->width + 1,
+			sizeof(t_vector));
+	if (!points)
+		return (NULL);
+	i = -1;
+	while (++i < map->height * map->width)
+	{
+		points[i].x = i % map->width;
+		points[i].y = i / map->width;
+		points[i].z = map->grid[i % map->width][i / map->width];
+	}
+	return (points);
+}
+
 t_map	*parse_map(char *map_file)
 {
 	int		height;
@@ -63,6 +83,9 @@ t_map	*parse_map(char *map_file)
 	if (!map)
 		return (FALSE);
 	if (!fill_grid_values(map, map_file))
+		return (free_map(map), NULL);
+	map->points = convert_map_to_points(map);
+	if (!map->points)
 		return (free_map(map), NULL);
 	return (map);
 }
