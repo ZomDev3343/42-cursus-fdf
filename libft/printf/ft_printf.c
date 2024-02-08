@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:00:37 by truello           #+#    #+#             */
-/*   Updated: 2023/11/08 12:07:35 by truello          ###   ########.fr       */
+/*   Updated: 2024/02/08 12:36:38 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	print_format(t_format *format, va_list *args)
 
 static int	parse_format(const char *str, va_list *args, int *total)
 {
-	int	i;
+	int				i;
 	t_format		format;
 
 	i = 0;

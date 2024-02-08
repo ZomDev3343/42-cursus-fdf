@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:02:43 by truello           #+#    #+#             */
-/*   Updated: 2024/01/17 19:52:31 by truello          ###   ########.fr       */
+/*   Updated: 2024/02/08 12:36:22 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_swap_int(int *a, int *b);
 t_bool	has_int_parts(char *line, char delimiter);
 t_bool	is_int_parts(char **parts);
 
-int	get_file_size(char *file_path);
+int		get_file_size(char *file_path);
 char	*get_file_content(char *file_path);
 
 #endif
