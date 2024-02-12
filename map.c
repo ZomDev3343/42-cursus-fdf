@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:29:16 by truello           #+#    #+#             */
-/*   Updated: 2024/02/08 13:14:53 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/09 13:41:37 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static t_vector	*convert_map_to_points(t_map *map)
 	i = -1;
 	while (++i < map->height * map->width)
 	{
-		points[i].x = i % map->width;
-		points[i].y = i / map->width;
-		points[i].z = map->grid[i % map->width][i / map->width];
+		points[i].x = i % map->width * 50 + 200;
+		points[i].y = i / map->width * 25 + 200;
+		points[i].z = map->grid[i % map->width][i / map->width] * 10;
 	}
 	return (points);
 }
@@ -85,6 +85,7 @@ t_map	*parse_map(char *map_file)
 	if (!fill_grid_values(map, map_file))
 		return (free_map(map), NULL);
 	map->points = convert_map_to_points(map);
+	map->size = map->width * map->height;
 	if (!map->points)
 		return (free_map(map), NULL);
 	return (map);

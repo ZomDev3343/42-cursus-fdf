@@ -6,28 +6,36 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:22:02 by truello           #+#    #+#             */
-/*   Updated: 2024/02/05 15:20:06 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/09 13:42:27 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+static void	render_points(t_camera *cam, t_vector *points, t_img *img)
+{
+	t_vector	point;
+	int			i;
+
+	i = -1;
+	while (++i < img->vars->map->size)
+	{
+		point = points[i];
+		point = project_point(cam, &point);
+		draw_pixel(img, point.x, point.y, 0xFFFFFFFF);
+	}
+}
+
 static void	render_map(t_img *img)
 {
 	t_map		*map;
-	t_camera	cam;
 	int			padding;
 	int			i;
 
-	cam = make_camera();
 	padding = 20;
 	i = -1;
 	map = img->vars->map;
-	while (++i < map->width * map->height)
-	{
-		draw_pixel(img, 100 + padding * (i % map->width),
-			100 + padding * (i / map->width), 0xFFFFFFFF);
-	}
+	render_points(&(img->vars->cam), map->points, img);
 }
 
 static void	render_fdf(t_img *img)

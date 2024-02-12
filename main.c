@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:12 by truello           #+#    #+#             */
-/*   Updated: 2024/02/06 14:43:10 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/08 16:10:09 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	setup_vars(t_vars *vars)
 {
+	vars->cam = make_camera();
 	vars->win_width = 800;
 	vars->win_height = 600;
 }

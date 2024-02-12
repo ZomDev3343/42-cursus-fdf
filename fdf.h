@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/08 13:10:46 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/09 13:19:15 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct s_vector
 {
-	int	x;
-	int	y;
-	int	z;
+	int		x;
+	int		y;
+	double	z;
 }	t_vector;
 
 typedef struct s_mat
@@ -37,6 +37,7 @@ typedef struct s_map
 {
 	int			width;
 	int			height;
+	int			size;
 	int			**grid;
 	t_vector	*points;
 }	t_map;
@@ -49,6 +50,16 @@ typedef struct s_interact
 	int	size_y;
 }	t_interact;
 
+typedef struct s_camera
+{
+	int	fov;
+	int	far;
+	int	aspect;
+	int	angle;
+	int	x;
+	int	y;
+}	t_camera;
+
 typedef struct s_vars
 {
 	void		*mlx;
@@ -56,7 +67,7 @@ typedef struct s_vars
 	t_map		*map;
 	int			win_width;
 	int			win_height;
-	t_interact	*cam;
+	t_camera	cam;
 }	t_vars;
 
 typedef struct s_img
@@ -68,16 +79,6 @@ typedef struct s_img
 	int		endian;
 	t_vars	*vars;
 }	t_img;
-
-typedef struct s_camera
-{
-	int	fov;
-	int	far;
-	int	aspect;
-	int	angle;
-	int	x;
-	int	y;
-}	t_camera;
 
 void		free_map(t_map *map);
 int			parse_map_dimension(char *map_file, int *width, int *height);
@@ -115,6 +116,14 @@ void		mult_vector(t_vector *v1, int n);
 
 t_mat		make_matrix3(t_vector x, t_vector y, t_vector z);
 void		add_matrix(t_mat *m1, t_mat *m2);
+t_vector	matvec(t_mat *m, t_vector *v);
+
+/* Points */
+
+t_vector	project_point(t_camera *cam, t_vector *point);
+t_vector	rotate_point_x(t_camera *cam, t_vector *point);
+t_vector	rotate_point_y(t_camera *cam, t_vector *point);
+t_vector	rotate_point_z(t_camera *cam, t_vector *point);
 
 /* Utils */
 void		free_vars(t_vars *vars);

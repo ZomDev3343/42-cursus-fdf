@@ -8,6 +8,7 @@ SRC=main.c \
 	draw.c \
 	vector.c \
 	matrix.c \
+	matrix_2.c \
 	camera.c \
 	setup.c
 OBJ=${SRC:.c=.o}
