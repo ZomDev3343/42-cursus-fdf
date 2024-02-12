@@ -1,16 +1,4 @@
-SRC=main.c \
-	map.c \
-	map_2.c \
-	input.c \
-	render.c \
-	window.c \
-	utils.c \
-	draw.c \
-	vector.c \
-	matrix.c \
-	matrix_2.c \
-	camera.c \
-	setup.c
+SRC=main.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
 FT=./libft/libft.a
