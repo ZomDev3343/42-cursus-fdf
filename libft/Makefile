@@ -9,6 +9,7 @@ PRINTF= printf/conversion.c \
 GNL=gnl/get_next_line_bonus.c \
 	gnl/get_next_line_utils_bonus.c
 SRC=ft_split.c \
+	ft_split_2.c \
 	ft_atoi.c \
 	ft_calloc.c \
 	ft_isdigit.c \

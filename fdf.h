@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/12 23:40:20 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/13 13:54:59 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,13 @@ typedef struct s_cam
 
 typedef struct s_vars
 {
-	
+	int			width;
+	int			height;
+	t_cam		*cam;
+	t_vector	*points;
 }	t_vars;
 
+void	setup_vars(t_vars **vars);
+int		is_map_correct(char *map_file, t_vars *vars);
+void	free_vars(t_vars *vars);
 #endif

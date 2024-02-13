@@ -1,4 +1,7 @@
-SRC=main.c
+SRC=main.c \
+	setup.c \
+	parsing.c \
+	utils.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
 FT=./libft/libft.a

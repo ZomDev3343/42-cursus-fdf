@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_split_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/13 14:09:04 by tohma            ###   ########.fr       */
+/*   Created: 2024/02/13 13:35:48 by tohma             #+#    #+#             */
+/*   Updated: 2024/02/13 13:37:06 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "ft.h"
 
-int	main(int ac, char **av, char **env)
+int	get_parts_size(char **parts)
 {
-	t_vars	*vars;
+	int	i;
 
-	if (ac != 2)
-		return (ft_printf("You must give one (and only) file name!\n"), 1);
-	else
-	{
-		setup_vars(&vars);
-		free_vars(vars);
-	}
-	return (0);
+	if (!parts || !*parts)
+		return (0);
+	i = 0;
+	while (parts[i])
+		i++;
+	return (i);
 }
