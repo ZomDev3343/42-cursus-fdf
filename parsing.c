@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:19:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/13 14:13:25 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/13 16:12:09 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	get_line_parts_size(char *line)
 	return (free_parts(line_parts), size);
 }
 
-int	parse_map_size(char *map_file, t_vars *vars)
+static int	parse_map_size(char *map_file, t_vars *vars)
 {
 	char	*cur_line;
 	int		prev_width;
@@ -48,5 +48,41 @@ int	parse_map_size(char *map_file, t_vars *vars)
 		cur_line = get_next_line(fd);
 		height++;
 	}
-	return (vars->height = height, vars->width = prev_width, close(fd), TRUE);
+	return (vars->map_height = height, vars->map_width = prev_width,
+		vars->map_size = height * prev_width, (fd), TRUE);
+}
+
+static int	parse_points(char *map_content, t_vars *vars)
+{
+	char	**parts;
+	int		i;
+	int		j;
+
+	vars->points = (t_vector *) ft_calloc(vars->cam, sizeof(t_vector));
+	if (vars->points)
+		return (0);
+	i = -1;
+	j = 0;
+	ft_strrepl(map_content, '\n', ' ');
+	parts = ft_split(map_content, ' ');
+	if (!parts)
+		return (ft_printf("Split error!\n"), 0);
+	// TODO Verifier le contenu de chaque case de la map avec atoi
+	// TODO Finir le parsing
+}
+
+int	parse_map(char *map_file, t_vars *vars)
+{
+	char	*f_content;
+	char	**f_parts;
+
+	f_content = get_file_content(map_file);
+	if (!f_content)
+		return (0);
+	if (!f_parts)
+		return (free(f_content), ft_printf("Split Error!\n", FALSE));
+	if (!parse_map_size(map_file, vars))
+		return (free(f_content), FALSE);
+	if (!parse_points(f_content, vars))
+		return (free(f_content), FALSE);
 }
