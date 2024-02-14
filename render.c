@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 18:15:54 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 18:22:41 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@ static void	render_lines(t_img *img, t_vars *vars)
 
 static void	render_points(t_img *img, t_vars *vars)
 {
-	
+	int	i;
+
+	i = -1;
+	while (++i < vars->map_size)
+	{
+		
+	}
 }
 
 int	render_frame(t_vars *vars)

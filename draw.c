@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:37:45 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 18:04:50 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 18:30:49 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ void	draw_pixel(t_img *img, t_draw_info info)
 }
 
 void	draw_square(t_img *img, t_draw_info info, int size)
+{
+	int				i;
+
+	i = -1;
+	while (++i < size)
+	{
+		draw_pixel(img, add_xy_info(&info, i, 0));
+		draw_pixel(img, add_xy_info(&info, size, i));
+		draw_pixel(img, add_xy_info(&info, i, size));
+		draw_pixel(img, add_xy_info(&info, 0, i));
+	}
+	draw_pixel(img, add_xy_info(&info, size, size));
+}
+
+//TODO
+void	draw_fsquare(t_img *img, t_draw_info info, int size)
 {
 	int				i;
 
