@@ -6,15 +6,20 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 16:52:22 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 18:05:30 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*
+	TODO Faire le systeme pour changer la couleur en fonction
+	de la hauteur d'un pixel
+*/
+
 static void	put_loop_hooks(t_vars *vars)
 {
-	
+	render_frame(vars);
 }
 
 static void	put_hooks(t_vars *vars)

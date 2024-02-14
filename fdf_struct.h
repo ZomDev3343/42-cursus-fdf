@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 16:38:38 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 17:47:48 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,22 @@ typedef struct s_vars
 	void		*mlx;
 	void		*mlx_win;
 }	t_vars;
+
+typedef struct s_img
+{
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	t_vars		*vars;
+}	t_img;
+
+typedef struct s_draw_info
+{
+	int	start_x;
+	int	start_y;
+	int	color;
+}	t_draw_info;
 
 #endif

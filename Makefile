@@ -4,6 +4,9 @@ SRC=main.c \
 	utils.c \
 	window.c \
 	vector.c \
+	draw.c \
+	drawinfo.c \
+	render.c \
 	matrix.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
