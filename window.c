@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 13:54:16 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 10:28:10 by tohma            ###   ########.fr       */
+/*   Created: 2024/02/14 10:36:05 by tohma             #+#    #+#             */
+/*   Updated: 2024/02/14 10:40:53 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	free_vars(t_vars *vars)
+void	close_window(t_vars *vars)
 {
-	free(vars->cam);
-	free(vars->points);
-	free(vars->mlx);
-	free(vars);
+	mlx_destroy_window(vars->mlx, vars->mlx_win);
+	mlx_destroy_display(vars->mlx);
+	free_vars(vars);
+	exit(0);
 }
+
+void	manage_input(t_vars *vars)
+{
+	
+}
+

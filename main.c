@@ -6,11 +6,35 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/13 14:09:04 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 10:39:11 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static void	put_loop_hooks(t_vars *vars)
+{
+	
+}
+
+static void	put_hooks(t_vars *vars)
+{
+	mlx_hook(vars->mlx_win, 2, 1L << 0, manage_input, vars);
+	mlx_hook(vars->mlx_win, 17, 0, close_window, vars);
+	put_loop_hooks(vars);
+}
+
+void	fdf(t_vars *vars)
+{
+	vars->mlx = mlx_init();
+	if (!vars->mlx)
+		return ;
+	vars->mlx_win = mlx_new_window(vars->mlx, vars->win_width,
+			vars->win_height, "FDF");
+	if (!vars->mlx_win)
+		return ;
+	
+}
 
 int	main(int ac, char **av, char **env)
 {
@@ -21,6 +45,7 @@ int	main(int ac, char **av, char **env)
 	else
 	{
 		setup_vars(&vars);
+		fdf(vars);
 		free_vars(vars);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:12:22 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/13 13:39:13 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 10:30:45 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,6 @@ void	setup_vars(t_vars **vars)
 	if (!(*vars)->cam)
 		return (free(*vars));
 	setup_cam((*vars)->cam);
+	(*vars)->win_width = 800;
+	(*vars)->win_height = 600;
 }

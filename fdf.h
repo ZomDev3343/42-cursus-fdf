@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/13 15:24:35 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 10:40:20 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,18 @@ typedef struct s_vars
 	int			map_width;
 	int			map_height;
 	int			map_size;
+	int			win_width;
+	int			win_height;
 	t_cam		*cam;
 	t_vector	*points;
+	void		*mlx;
+	void		*mlx_win;
 }	t_vars;
 
 void	setup_vars(t_vars **vars);
 int		parse_map_size(char *map_file, t_vars *vars);
 void	free_vars(t_vars *vars);
+
+void	close_window(t_vars *vars);
 
 #endif

@@ -1,7 +1,9 @@
 SRC=main.c \
 	setup.c \
 	parsing.c \
-	utils.c
+	utils.c \
+	window.c \
+	matrix.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
 FT=./libft/libft.a
