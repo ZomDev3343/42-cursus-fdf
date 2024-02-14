@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 17:39:11 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 18:15:54 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	render_points(t_img *img, t_vars *vars)
 	
 }
 
-void	render_frame(t_vars *vars)
+int	render_frame(t_vars *vars)
 {
 	t_img	img;
 
@@ -34,6 +34,6 @@ void	render_frame(t_vars *vars)
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
 	render_points(&img, vars);
 	render_lines(&img, vars);
-	mlx_do_sync(vars->mlx);
 	mlx_destroy_image(vars->mlx, img.img);
+	return (0);
 }

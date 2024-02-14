@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 18:05:30 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 18:15:01 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 static void	put_loop_hooks(t_vars *vars)
 {
-	render_frame(vars);
+	mlx_loop_hook(vars->mlx, render_frame, vars);
 }
 
 static void	put_hooks(t_vars *vars)

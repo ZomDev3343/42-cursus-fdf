@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/14 18:05:40 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 18:16:02 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		draw_line(t_img *img, t_vector from, t_vector to);
 
 /* Render */
 
-void		render_frame(t_vars *vars);
+int			render_frame(t_vars *vars);
 
 /* Window Utils */
 
