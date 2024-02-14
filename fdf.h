@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/13 15:24:35 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/13 18:11:48 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ typedef struct s_vars
 	t_vector	*points;
 }	t_vars;
 
-void	setup_vars(t_vars **vars);
-int		parse_map_size(char *map_file, t_vars *vars);
-void	free_vars(t_vars *vars);
+void		setup_vars(t_vars **vars);
+int			parse_map_size(char *map_file, t_vars *vars);
+void		free_vars(t_vars *vars);
+
+t_vector	make_vector(double x, double y, double z);
 
 #endif
