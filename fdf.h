@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/14 10:40:20 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 16:08:03 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ typedef struct s_vars
 	void		*mlx_win;
 }	t_vars;
 
-void	setup_vars(t_vars **vars);
-int		parse_map_size(char *map_file, t_vars *vars);
-void	free_vars(t_vars *vars);
+void		setup_vars(t_vars **vars);
+int			parse_map_size(char *map_file, t_vars *vars);
+void		free_vars(t_vars *vars);
+
+t_vector	make_vector(double x, double y, double z);
 
 void	close_window(t_vars *vars);
 

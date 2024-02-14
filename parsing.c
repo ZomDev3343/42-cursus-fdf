@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:19:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/13 16:12:09 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/13 18:21:43 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ static int	parse_map_size(char *map_file, t_vars *vars)
 	cur_line = get_next_line(fd);
 	while (cur_line)
 	{
-		if (prev_width != get_line_parts_size(cur_line))
-			return (close(fd), FALSE);
+		if (prev_width != get_line_parts_size(cur_line)
+			|| has_int_parts(cur_line, ' '))
+			return (ft_printf("Map Error\n"), free(cur_line), close(fd), FALSE);
 		free(cur_line);
 		cur_line = get_next_line(fd);
 		height++;
 	}
-	return (vars->map_height = height, vars->map_width = prev_width,
-		vars->map_size = height * prev_width, (fd), TRUE);
+	return (vars->map_height = height, vars->map_width = prev_width, close(fd), TRUE);
 }
 
 static int	parse_points(char *map_content, t_vars *vars)
@@ -57,18 +57,27 @@ static int	parse_points(char *map_content, t_vars *vars)
 	char	**parts;
 	int		i;
 	int		j;
+	int		point_idx;
 
-	vars->points = (t_vector *) ft_calloc(vars->cam, sizeof(t_vector));
+	vars->points = (t_vector *) ft_calloc(vars->map_size, sizeof(t_vector));
 	if (vars->points)
 		return (0);
 	i = -1;
-	j = 0;
 	ft_strrepl(map_content, '\n', ' ');
 	parts = ft_split(map_content, ' ');
 	if (!parts)
 		return (ft_printf("Split error!\n"), 0);
-	// TODO Verifier le contenu de chaque case de la map avec atoi
-	// TODO Finir le parsing
+	// TODO Tester tout ca
+	while (++i < vars->map_height)
+	{
+		j = -1;
+		while (++j < vars->map_width)
+		{
+			point_idx = i * vars->map_width + j;
+			vars->points[point_idx] = make_vector(50 + 10 * j, 50 + 10 * i,
+					ft_atoi(parts[point_idx]));
+		}
+	}
 }
 
 int	parse_map(char *map_file, t_vars *vars)
@@ -83,6 +92,7 @@ int	parse_map(char *map_file, t_vars *vars)
 		return (free(f_content), ft_printf("Split Error!\n", FALSE));
 	if (!parse_map_size(map_file, vars))
 		return (free(f_content), FALSE);
+	vars->map_size = vars->map_height * vars->map_width;
 	if (!parse_points(f_content, vars))
 		return (free(f_content), FALSE);
 }
