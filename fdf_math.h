@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   fdf_math.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 17:55:46 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 16:34:44 by tohma            ###   ########.fr       */
+/*   Created: 2024/02/14 16:39:17 by tohma             #+#    #+#             */
+/*   Updated: 2024/02/14 16:43:23 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef FDF_MATH_H
+# define FDF_MATH_H
 
-t_vector	make_vector(double x, double y, double z)
-{
-	t_vector	vec;
+# include "fdf_struct.h"
 
-	vec.x = x;
-	vec.y = y;
-	vec.z = z;
-	return (vec);
-}
+t_vector	make_vector(double x, double y, double z);
+t_vector	addvec(t_vector v1, t_vector v2);
+t_vector	mulvec(t_vector v, double n);
 
-t_vector	addvec(t_vector v1, t_vector v2)
-{
-	t_vector	res;
+t_mat		make_matrix(t_vector c1, t_vector c2, t_vector c3);
+t_vector	matvec(t_mat mat, t_vector v);
 
-	res.x = v1.x + v2.x;
-	res.y = v1.y + v2.y;
-	res.z = v1.z + v2.z;
-	return (res);
-}
-
-t_vector	mulvec(t_vector v, double n)
-{
-	t_vector	res;
-
-	res.x = v.x * n;
-	res.y = v.y * n;
-	res.z = v.z * n;
-	return (res);
-}
+#endif

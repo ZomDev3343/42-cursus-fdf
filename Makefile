@@ -3,6 +3,7 @@ SRC=main.c \
 	parsing.c \
 	utils.c \
 	window.c \
+	vector.c \
 	matrix.c
 OBJ=${SRC:.c=.o}
 NAME=fdf

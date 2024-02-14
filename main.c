@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 10:39:11 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 16:52:22 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	put_hooks(t_vars *vars)
 	put_loop_hooks(vars);
 }
 
-void	fdf(t_vars *vars)
+static void	fdf(t_vars *vars)
 {
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
@@ -33,7 +33,8 @@ void	fdf(t_vars *vars)
 			vars->win_height, "FDF");
 	if (!vars->mlx_win)
 		return ;
-	
+	put_hooks(vars);
+	mlx_loop(vars->mlx);
 }
 
 int	main(int ac, char **av, char **env)

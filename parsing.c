@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:19:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/13 18:21:43 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/14 16:44:59 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static int	get_line_parts_size(char *line)
 static int	parse_map_size(char *map_file, t_vars *vars)
 {
 	char	*cur_line;
-	int		prev_width;
-	int		height;
+	int		w;
+	int		h;
 	int		fd;
 
 	fd = open(map_file, O_RDONLY);
@@ -36,20 +36,20 @@ static int	parse_map_size(char *map_file, t_vars *vars)
 	cur_line = get_next_line(fd);
 	if (!cur_line)
 		return (FALSE);
-	height = 1;
-	prev_width = get_line_parts_size(cur_line);
+	h = 1;
+	w = get_line_parts_size(cur_line);
 	free(cur_line);
 	cur_line = get_next_line(fd);
 	while (cur_line)
 	{
-		if (prev_width != get_line_parts_size(cur_line)
+		if (w != get_line_parts_size(cur_line)
 			|| has_int_parts(cur_line, ' '))
 			return (ft_printf("Map Error\n"), free(cur_line), close(fd), FALSE);
 		free(cur_line);
 		cur_line = get_next_line(fd);
-		height++;
+		h++;
 	}
-	return (vars->map_height = height, vars->map_width = prev_width, close(fd), TRUE);
+	return (vars->map_height = h, vars->map_width = w, close(fd), TRUE);
 }
 
 static int	parse_points(char *map_content, t_vars *vars)
@@ -67,7 +67,6 @@ static int	parse_points(char *map_content, t_vars *vars)
 	parts = ft_split(map_content, ' ');
 	if (!parts)
 		return (ft_printf("Split error!\n"), 0);
-	// TODO Tester tout ca
 	while (++i < vars->map_height)
 	{
 		j = -1;
