@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:19:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 17:30:28 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:40:25 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int	parse_points(char *map_content, t_vars *vars)
 		while (++j < vars->map_width)
 		{
 			point_idx = i * vars->map_width + j;
-			vars->points[point_idx] = make_vector(50 + 10 * j, 50 + 10 * i,
+			vars->points[point_idx] = newvec(50 + 10 * j, 50 + 10 * i,
 					ft_atoi(parts[point_idx]));
 		}
 	}

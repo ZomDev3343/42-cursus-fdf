@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 17:29:16 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 22:10:20 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,18 @@ static void	render_lines(t_img *img, t_vars *vars)
 
 static void	render_points(t_img *img, t_vars *vars)
 {
-	int	i;
+	int			i;
+	t_vector	point;
 
 	i = -1;
 	while (++i < vars->map_size)
-		draw_pixel(img, drawinfo(vars->points[i].x,
-				vars->points[i].y, 0xFABF));
+	{
+		point = vars->points[i];
+		point = iso_point(vars->cam, vars->points + i);
+		point = addvec(point, newvec(300, 200, 0));
+		point = project_point(vars->cam, &point);
+		draw_pixel(img, drawinfo(point.x, point.y, 0xFFFFFFFF));
+	}
 }
 
 /*
@@ -54,8 +60,12 @@ int	render_frame(t_vars *vars)
 			&(img.bits_per_pixel), &(img.line_length),
 			&(img.endian));
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
-	render_lines(&img, vars);
+	//render_lines(&img, vars);
 	render_points(&img, vars);
 	mlx_destroy_image(vars->mlx, img.img);
+	vars->cam->angle += 0.1;
+	if (vars->cam->angle >= 360.0)
+		vars->cam->angle = 0.0;
+	printf("Cam angle: %f\n", vars->cam->angle);
 	return (0);
 }

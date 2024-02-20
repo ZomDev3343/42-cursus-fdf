@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/20 15:38:16 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 20:38:34 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@
 # include "fdf_math.h"
 # include "fdf_keys.h"
 
+# include <stdio.h>
+
 /* FDF */
 
 void		setup_vars(t_vars **vars);
 void		free_vars(t_vars *vars);
 void		print_vector(char *name, t_vector *v);
-
+void		print_mat(t_mat *mat);
 /* Parsing */
 
 int			parse_map(char *map_file, t_vars *vars);

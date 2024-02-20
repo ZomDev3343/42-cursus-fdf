@@ -6,6 +6,7 @@
 		"fdf_math.h": "c",
 		"math.h": "c",
 		"fdf_struct.h": "c",
-		"get_next_line_bonus.h": "c"
+		"get_next_line_bonus.h": "c",
+		"fdf_keys.h": "c"
 	}
 }

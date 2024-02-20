@@ -6,13 +6,13 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:55:46 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 17:29:32 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 20:38:56 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_vector	make_vector(double x, double y, double z)
+t_vector	newvec(double x, double y, double z)
 {
 	t_vector	vec;
 
@@ -42,7 +42,16 @@ t_vector	mulvec(t_vector v, double n)
 	return (res);
 }
 
+/*
+	v1 is considered as a row vector (Horizontal)
+	v2 is considered as a column vector (Vertical)
+*/
+double	rowcol(t_vector	v1, t_vector v2)
+{
+	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+}
+
 void	print_vector(char *name, t_vector *v)
 {
-	ft_printf("%s :\nX: %d\nY:%d\nZ:%d\n", name, v->x, v->y, v->z);
+	printf("%s :\nX: %f\nY:%f\nZ:%f\n", name, v->x, v->y, v->z);
 }

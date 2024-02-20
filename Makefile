@@ -8,6 +8,8 @@ SRC=main.c \
 	drawinfo.c \
 	line.c \
 	render.c \
+	transform.c \
+	rotation.c \
 	matrix.c \
 	neighbors.c
 OBJ=${SRC:.c=.o}

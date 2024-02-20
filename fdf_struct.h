@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 15:38:09 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 22:10:52 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_vars
 	int			win_height;
 	t_cam		*cam;
 	t_vector	*points;
+	t_vector	*drawn_points;
 	void		*mlx;
 	void		*mlx_win;
 }	t_vars;
