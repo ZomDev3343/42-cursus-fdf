@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:53:51 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 17:24:50 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 22:29:14 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_vector	**get_next_neighbors(t_vars *vars, int point_idx)
 	if (!neighbors)
 		return (NULL);
 	if (point_idx % vars->map_width < vars->map_width - 1)
-		neighbors[0] = vars->points + point_idx + 1;
+		neighbors[0] = vars->drawn_points + point_idx + 1;
 	if (point_idx + vars->map_width < vars->map_size)
-		neighbors[1] = vars->points + point_idx + vars->map_width;
+		neighbors[1] = vars->drawn_points + point_idx + vars->map_width;
 	return (neighbors);
 }

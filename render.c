@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 22:10:20 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 22:45:22 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void	render_lines(t_img *img, t_vars *vars)
 		if (!neighbors)
 			continue ;
 		if (neighbors[0])
-			draw_line(img, vars->points + i, neighbors[0]);
+			draw_line(img, vars->drawn_points + i, neighbors[0]);
 		if (neighbors[1])
-			draw_line(img, vars->points + i, neighbors[1]);
+			draw_line(img, vars->drawn_points + i, neighbors[1]);
 		ft_free(neighbors);
 	}
 }
 
-static void	render_points(t_img *img, t_vars *vars)
+static void	project_points(t_img *img, t_vars *vars)
 {
 	int			i;
 	t_vector	point;
@@ -43,7 +43,7 @@ static void	render_points(t_img *img, t_vars *vars)
 		point = iso_point(vars->cam, vars->points + i);
 		point = addvec(point, newvec(300, 200, 0));
 		point = project_point(vars->cam, &point);
-		draw_pixel(img, drawinfo(point.x, point.y, 0xFFFFFFFF));
+		vars->drawn_points[i] = point;
 	}
 }
 
@@ -60,8 +60,8 @@ int	render_frame(t_vars *vars)
 			&(img.bits_per_pixel), &(img.line_length),
 			&(img.endian));
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
-	//render_lines(&img, vars);
-	render_points(&img, vars);
+	project_points(&img, vars);
+	render_lines(&img, vars);
 	mlx_destroy_image(vars->mlx, img.img);
 	vars->cam->angle += 0.1;
 	if (vars->cam->angle >= 360.0)

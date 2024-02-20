@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:19:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 17:40:25 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 22:47:53 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,24 @@ static int	parse_points(char *map_content, t_vars *vars)
 		while (++j < vars->map_width)
 		{
 			point_idx = i * vars->map_width + j;
-			vars->points[point_idx] = newvec(50 + 10 * j, 50 + 10 * i,
+			vars->points[point_idx] = newvec(50 + 25 * j, 50 + 25 * i,
 					ft_atoi(parts[point_idx]));
 		}
 	}
 	return (free_parts(parts), TRUE);
+}
+
+static void	init_drawn_points(t_vars *vars)
+{
+	int	i;
+
+	i = -1;
+	vars->drawn_points = (t_vector *) ft_calloc(vars->map_size,
+			sizeof(t_vector));
+	if (!vars->drawn_points)
+		return ;
+	while (++i < vars->map_size)
+		vars->drawn_points[i] = vars->points[i];
 }
 
 /*
@@ -106,6 +119,9 @@ int	parse_map(char *map_file, t_vars *vars)
 		return (free(f_content), FALSE);
 	vars->map_size = vars->map_height * vars->map_width;
 	if (!parse_points(f_content, vars))
+		return (free(f_content), FALSE);
+	init_drawn_points(vars);
+	if (!vars->drawn_points)
 		return (free(f_content), FALSE);
 	return (free(f_content), TRUE);
 }
