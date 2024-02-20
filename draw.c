@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:37:45 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 18:30:49 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/19 11:38:22 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	draw_line(t_img *img, t_vector from, t_vector to)
 			continue ;
 		}
 		y = from.y + dy * (x - from.x) / dx;
-		draw_pixel(img, make_drawinfo(x, y, 0xFFFFFFFF));
+		draw_pixel(img, drawinfo(x, y, 0xFFFFFFFF));
 	}
 }

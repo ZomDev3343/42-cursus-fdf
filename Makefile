@@ -7,7 +7,8 @@ SRC=main.c \
 	draw.c \
 	drawinfo.c \
 	render.c \
-	matrix.c
+	matrix.c \
+	neighbors.c
 OBJ=${SRC:.c=.o}
 NAME=fdf
 FT=./libft/libft.a
@@ -24,7 +25,7 @@ all:
 	cc -c $(FT) $(MLX) $(LIBS) -g $< -o $@
 
 $(NAME): $(FT) $(OBJ)
-	cc $(OBJ) $(FT) $(MLX) $(LIBS) -o $(NAME)
+	cc $(OBJ) $(FT) $(MLX) $(LIBS) -g -o $(NAME)
 
 $(FT):
 	make -C libft

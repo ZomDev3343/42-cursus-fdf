@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 18:15:01 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/19 14:01:23 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int	main(int ac, char **av, char **env)
 	else
 	{
 		setup_vars(&vars);
-		fdf(vars);
+		if (parse_map(av[1], vars))
+			fdf(vars);
+		else
+			ft_printf("Map Error\n");
 		free_vars(vars);
 	}
 	return (0);

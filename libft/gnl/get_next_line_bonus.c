@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:28:01 by truello           #+#    #+#             */
-/*   Updated: 2023/12/05 12:01:57 by truello          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:47:55 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,7 @@ static char	*process_list(t_gnl_list **lst, int fd)
 		return (NULL);
 	last = flfd(lst, fd, 'l');
 	if (!*lst || !last)
-	{
-		free(res);
-		return (NULL);
-	}
+		return (free(res), NULL);
 	nl_idx = is_line(last->data, last->read_size);
 	if (nl_idx >= 0 && nl_idx < last->read_size - 1)
 		remain = lstnew(strdupl(last->data, last->read_size, nl_idx + 1),

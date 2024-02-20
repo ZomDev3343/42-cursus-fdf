@@ -6,13 +6,13 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:53:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 17:57:41 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/19 11:38:22 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_draw_info	make_drawinfo(int start_x, int start_y, int color)
+t_draw_info	drawinfo(int start_x, int start_y, int color)
 {
 	t_draw_info	info;
 

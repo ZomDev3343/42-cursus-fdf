@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:13:51 by truello           #+#    #+#             */
-/*   Updated: 2024/02/08 13:14:00 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/19 13:55:14 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,21 @@ void	*ft_calloc(size_t count, size_t size)
 	return (r);
 }
 
-int		ft_free(void *ptr)
+int	ft_free(void *ptr)
 {
 	if (ptr)
 		return (free(ptr), 1);
 	return (0);
+}
+
+void	ft_clear_gnl(int fd)
+{
+	char	*line;
+
+	line = get_next_line(fd);
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
 }

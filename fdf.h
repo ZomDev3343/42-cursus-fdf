@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/14 18:30:17 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/19 16:41:39 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@
 void		setup_vars(t_vars **vars);
 void		free_vars(t_vars *vars);
 
+/* Parsing */
+
+int			parse_map(char *map_file, t_vars *vars);
+
+/* Get Neighbors */
+
+t_vector	**get_next_neighbors(t_vars *vars, int point_idx);
+
 /* Draw */
 
-t_draw_info	make_drawinfo(int start_x, int start_y, int color);
+t_draw_info	drawinfo(int start_x, int start_y, int color);
 t_draw_info	add_xy_info(t_draw_info *info, int add_x, int add_y);
 
 void		draw_pixel(t_img *img, t_draw_info info);

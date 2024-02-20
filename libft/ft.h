@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:02:43 by truello           #+#    #+#             */
-/*   Updated: 2024/02/13 13:37:26 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/19 13:56:37 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 
 void	*ft_calloc(size_t count, size_t size);
 int		ft_free(void *ptr);
+void	ft_clear_gnl(int fd);
+
 char	**ft_split(char const *str, char c);
 char	**free_parts(char **parts);
 int		get_parts_size(char **parts);
