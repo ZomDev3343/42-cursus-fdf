@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:36:05 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 17:23:54 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:29:44 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ int	manage_input(int keycode, t_vars *vars)
 	if (keycode == KEY_ESCAPE)
 		close_window(vars);
 }
-

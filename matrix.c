@@ -6,12 +6,15 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:15:04 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 10:23:08 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:24:12 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*
+	Creates a matrix variable
+*/
 t_mat	make_matrix(t_vector c1, t_vector c2, t_vector c3)
 {
 	t_mat	mat;
@@ -22,6 +25,10 @@ t_mat	make_matrix(t_vector c1, t_vector c2, t_vector c3)
 	return (mat);
 }
 
+/*
+	Multiplies a matrix with a vector
+	Ex: projection/rotation matrices purposes
+*/
 t_vector	matvec(t_mat mat, t_vector v)
 {
 	t_vector	res;

@@ -6,12 +6,16 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:53:51 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 15:24:06 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:24:50 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*
+	Returns an array containing the (existing or not) right and down
+	neighbors of a point
+*/
 t_vector	**get_next_neighbors(t_vars *vars, int point_idx)
 {
 	t_vector	**neighbors;

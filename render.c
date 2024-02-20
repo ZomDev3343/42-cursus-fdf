@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 16:54:22 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:29:16 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ static void	render_points(t_img *img, t_vars *vars)
 				vars->points[i].y, 0xFABF));
 }
 
+/*
+	Renders every frame of the program
+*/
 int	render_frame(t_vars *vars)
 {
 	t_img	img;

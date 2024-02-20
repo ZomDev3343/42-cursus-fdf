@@ -6,12 +6,15 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:53:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/19 11:38:22 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:30:13 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*
+	Creates a struct for drawing purpose
+*/
 t_draw_info	drawinfo(int start_x, int start_y, int color)
 {
 	t_draw_info	info;
@@ -22,6 +25,9 @@ t_draw_info	drawinfo(int start_x, int start_y, int color)
 	return (info);
 }
 
+/*
+	Offsets an existing drawinfo variable
+*/
 t_draw_info	add_xy_info(t_draw_info *info, int add_x, int add_y)
 {
 	t_draw_info	res;

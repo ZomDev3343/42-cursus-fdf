@@ -6,12 +6,16 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:19:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 16:54:10 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:30:28 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*
+	Returns the amount of parts of a line
+	separated by a space
+*/
 static int	get_line_parts_size(char *line)
 {
 	char	**line_parts;
@@ -23,6 +27,11 @@ static int	get_line_parts_size(char *line)
 	return (free_parts(line_parts), size);
 }
 
+/*
+	Gets the height and width of a map
+	Returns TRUE or FALSE according to the
+	correct (or not) format of the map
+*/
 static int	parse_map_size(char *map_file, t_vars *vars)
 {
 	char	*cur_line;
@@ -52,6 +61,9 @@ static int	parse_map_size(char *map_file, t_vars *vars)
 	return (vars->map_height = h, vars->map_width = w, close(fd), TRUE);
 }
 
+/*
+	Gets all the different points of the map with their values
+*/
 static int	parse_points(char *map_content, t_vars *vars)
 {
 	char	**parts;
@@ -80,6 +92,9 @@ static int	parse_points(char *map_content, t_vars *vars)
 	return (free_parts(parts), TRUE);
 }
 
+/*
+	Parses the map given via the map file path
+*/
 int	parse_map(char *map_file, t_vars *vars)
 {
 	char	*f_content;

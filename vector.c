@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:55:46 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 15:39:30 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:29:32 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ t_vector	mulvec(t_vector v, double n)
 	res.y = v.y * n;
 	res.z = v.z * n;
 	return (res);
+}
+
+void	print_vector(char *name, t_vector *v)
+{
+	ft_printf("%s :\nX: %d\nY:%d\nZ:%d\n", name, v->x, v->y, v->z);
 }
