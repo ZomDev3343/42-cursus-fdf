@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:19:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/19 14:09:09 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 16:54:10 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static int	get_line_parts_size(char *line)
 static int	parse_map_size(char *map_file, t_vars *vars)
 {
 	char	*cur_line;
+	int		fd;
 	int		w;
 	int		h;
-	int		fd;
 
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
@@ -62,11 +62,11 @@ static int	parse_points(char *map_content, t_vars *vars)
 	vars->points = (t_vector *) ft_calloc(vars->map_size, sizeof(t_vector));
 	if (!vars->points)
 		return (ft_printf("Points malloc error\n"), FALSE);
-	i = -1;
 	ft_strrepl(map_content, '\n', ' ');
 	parts = ft_split(map_content, ' ');
 	if (!parts)
 		return (ft_printf("Split error!\n"), FALSE);
+	i = -1;
 	while (++i < vars->map_height)
 	{
 		j = -1;

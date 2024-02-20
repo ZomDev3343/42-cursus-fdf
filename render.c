@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/19 16:46:02 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 16:54:22 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ static void	render_lines(t_img *img, t_vars *vars)
 	while (++i < vars->map_size)
 	{
 		neighbors = get_next_neighbors(vars, i);
+		if (!neighbors)
+			continue ;
 		if (neighbors[0])
-			draw_line(img, vars->points[i], *(neighbors[0]));
+			draw_line(img, vars->points + i, neighbors[0]);
 		if (neighbors[1])
-			draw_line(img, vars->points[i], *(neighbors[1]));
+			draw_line(img, vars->points + i, neighbors[1]);
 		ft_free(neighbors);
 	}
 }

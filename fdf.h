@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/19 16:41:39 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 15:38:16 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 
 void		setup_vars(t_vars **vars);
 void		free_vars(t_vars *vars);
+void		print_vector(char *name, t_vector *v);
 
 /* Parsing */
 
@@ -43,7 +44,7 @@ t_draw_info	add_xy_info(t_draw_info *info, int add_x, int add_y);
 
 void		draw_pixel(t_img *img, t_draw_info info);
 void		draw_square(t_img *img, t_draw_info info, int size);
-void		draw_line(t_img *img, t_vector from, t_vector to);
+void		draw_line(t_img *img, t_vector *from, t_vector *to);
 void		draw_fsquare(t_img *img, t_draw_info info, int size);
 
 /* Render */

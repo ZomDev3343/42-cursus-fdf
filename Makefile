@@ -6,6 +6,7 @@ SRC=main.c \
 	vector.c \
 	draw.c \
 	drawinfo.c \
+	line.c \
 	render.c \
 	matrix.c \
 	neighbors.c

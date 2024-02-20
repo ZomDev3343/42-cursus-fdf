@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/19 14:01:23 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 15:52:48 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static void	put_hooks(t_vars *vars)
 
 static void	fdf(t_vars *vars)
 {
+	ft_printf("Map Width: %d, Map Height: %d\n",
+		vars->map_width, vars->map_height);
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
 		return ;

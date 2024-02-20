@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/19 14:55:46 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 15:38:09 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,16 @@ typedef struct s_draw_info
 	int	start_y;
 	int	color;
 }	t_draw_info;
+
+typedef struct s_plot_utils
+{
+	int	dx;
+	int	dy;
+	int	yi;
+	int	xi;
+	int	d;
+	int	x;
+	int	y;
+}	t_plot_utils;
 
 #endif

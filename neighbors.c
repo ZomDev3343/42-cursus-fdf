@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:53:51 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/19 16:45:00 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 15:24:06 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 t_vector	**get_next_neighbors(t_vars *vars, int point_idx)
 {
 	t_vector	**neighbors;
-	int			cur_neighbor;
 
-	cur_neighbor = 0;
 	neighbors = (t_vector **) ft_calloc(2, sizeof(t_vector *));
 	if (!neighbors)
 		return (NULL);
