@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:28:01 by truello           #+#    #+#             */
-/*   Updated: 2024/02/20 17:10:40 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:18:38 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,5 @@ char	*get_next_line(int fd)
 			break ;
 		rs = read(fd, readline, BUFFER_SIZE);
 	}
-	if (rs == -1 || !new_elem)
-		lst_clear_fd(&line, fd);
 	return (free(readline), process_list(&line, fd));
 }
