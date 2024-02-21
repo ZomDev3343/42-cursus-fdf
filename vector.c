@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:55:46 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 20:38:56 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:09:45 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,4 @@ t_vector	mulvec(t_vector v, double n)
 double	rowcol(t_vector	v1, t_vector v2)
 {
 	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
-}
-
-void	print_vector(char *name, t_vector *v)
-{
-	printf("%s :\nX: %f\nY:%f\nZ:%f\n", name, v->x, v->y, v->z);
 }

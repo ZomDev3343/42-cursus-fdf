@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:02:43 by truello           #+#    #+#             */
-/*   Updated: 2024/02/19 13:56:37 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:06:11 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,10 @@ t_bool	is_int_parts(char **parts);
 
 int		get_file_size(char *file_path);
 char	*get_file_content(char *file_path);
+
+int		ft_max(int x, int y);
+double	ft_dmax(double x, double y);
+int		ft_min(int x, int y);
+double	ft_dmin(double x, double y);
 
 #endif

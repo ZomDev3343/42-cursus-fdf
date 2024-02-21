@@ -10,6 +10,7 @@ SRC=main.c \
 	render.c \
 	transform.c \
 	rotation.c \
+	color.c \
 	matrix.c \
 	neighbors.c
 OBJ=${SRC:.c=.o}

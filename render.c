@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 12:04:55 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 17:09:52 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,13 @@ static void	project_points(t_img *img, t_vars *vars)
 	{
 		point = vars->points[i];
 		point = iso_point(vars->cam, vars->points + i);
-		point = addvec(point, newvec(300, 200, 0));
-		point = project_point(vars->cam, &point);
-		vars->drawn_points[i] = point;
+		vars->drawn_points[i] = addvec(point, newvec(
+					vars->cam->zoom * i + (vars->map_width / 2 * 40),
+					vars->cam->zoom * (i / vars->map_width)
+					+ (vars->map_height / 2 * 60),
+					0));
 	}
+	set_top_bottom(vars);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:15:04 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 21:59:52 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:09:54 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,4 @@ t_mat	matmat(t_mat m1, t_mat	m2)
 	res.c2.z = rowcol(matrow(&m1, 3), m2.c2);
 	res.c3.z = rowcol(matrow(&m1, 3), m2.c3);
 	return (res);
-}
-
-void	print_mat(t_mat *mat)
-{
-	print_vector("", &(mat->c1));
-	print_vector("", &(mat->c2));
-	print_vector("", &(mat->c3));
 }

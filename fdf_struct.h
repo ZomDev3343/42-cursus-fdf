@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 12:03:08 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:57:26 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ typedef struct s_mat
 typedef struct s_cam
 {
 	double	angle;
-	double	near;
-	double	far;
+	double	zoom;
 	double	fov;
 	int		x;
 	int		y;
@@ -47,6 +46,8 @@ typedef struct s_vars
 	t_cam		*cam;
 	t_vector	*points;
 	t_vector	*drawn_points;
+	double		top;
+	double		bottom;
 	void		*mlx;
 	void		*mlx_win;
 }	t_vars;

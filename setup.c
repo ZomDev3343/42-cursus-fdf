@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:12:22 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/14 10:30:45 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 17:04:29 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ static void	setup_cam(t_cam *cam)
 	if (!cam)
 		return ;
 	cam->angle = 90.0;
-	cam->near = 10.0;
-	cam->far = 1000.0;
+	cam->zoom = 0.0;
 	cam->fov = 90.0;
 	cam->x = 0;
 	cam->y = 0;

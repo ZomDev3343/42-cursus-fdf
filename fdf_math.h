@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:39:17 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 22:01:14 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:45:25 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ t_vector	iso_point(t_cam *cam, t_vector *point);
 t_mat		rotx_mat(double angle);
 t_mat		roty_mat(double angle);
 t_mat		rotz_mat(double angle);
-
 
 #endif
