@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 22:45:22 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 12:04:55 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int	render_frame(t_vars *vars)
 	t_img	img;
 
 	img.vars = vars;
-	img.img = mlx_new_image(vars->mlx, 800, 600);
+	mlx_get_screen_size(vars->mlx, &(vars->win_width), &(vars->win_height));
+	img.img = mlx_new_image(vars->mlx, vars->win_width, vars->win_height);
 	img.addr = mlx_get_data_addr(img.img,
 			&(img.bits_per_pixel), &(img.line_length),
 			&(img.endian));
@@ -66,6 +67,5 @@ int	render_frame(t_vars *vars)
 	vars->cam->angle += 0.1;
 	if (vars->cam->angle >= 360.0)
 		vars->cam->angle = 0.0;
-	printf("Cam angle: %f\n", vars->cam->angle);
 	return (0);
 }
