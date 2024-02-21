@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:09:23 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 16:40:54 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/21 17:48:44 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ int	point_color(double height, t_vars *vars)
 	ratio = height / vars->bottom;
 	color = LOW_COLOR * ratio;
 	return (color);
+}
+
+int	test_color(double ratio)
+{
+	return (HIGH_COLOR * ratio);
 }
