@@ -6,21 +6,21 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:12:22 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 17:04:29 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/22 15:17:22 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	setup_cam(t_cam *cam)
+static void	setup_cam(t_cam *cam, t_vars *vars)
 {
 	if (!cam)
 		return ;
-	cam->angle = 90.0;
+	cam->angle = 45.0;
 	cam->zoom = 0.0;
 	cam->fov = 90.0;
-	cam->x = 0;
-	cam->y = 0;
+	cam->x = -vars->win_width / 3;
+	cam->y = -vars->win_height / 2;
 }
 
 void	setup_vars(t_vars **vars)
@@ -28,10 +28,10 @@ void	setup_vars(t_vars **vars)
 	*vars = (t_vars *) ft_calloc(1, sizeof(t_vars));
 	if (!*vars)
 		return ;
+	(*vars)->win_width = 800;
+	(*vars)->win_height = 600;
 	(*vars)->cam = (t_cam *) ft_calloc(1, sizeof(t_cam));
 	if (!(*vars)->cam)
 		return (free(*vars));
-	setup_cam((*vars)->cam);
-	(*vars)->win_width = 800;
-	(*vars)->win_height = 600;
+	setup_cam((*vars)->cam, *vars);
 }
