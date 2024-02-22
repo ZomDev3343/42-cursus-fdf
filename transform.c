@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 17:08:11 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/22 16:29:03 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ t_vector	iso_point(t_cam *cam, t_vector *point)
 	alpha = PI / 180.0 * 45.0;
 	beta = PI / 180.0 * 0.0;
 	theta = PI / 180.0 * cam->angle;
-	rot_mat = matmat(rotx_mat(alpha), roty_mat(beta));
-	rot_mat = matmat(rot_mat, rotz_mat(theta));
+	rot_mat = matmat(matmat(rotx_mat(alpha), roty_mat(beta)), rotz_mat(theta));
 	res_point = matvec(rot_mat, *point);
 	return (res_point);
 }

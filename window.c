@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:36:05 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 16:20:57 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/22 16:32:15 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	manage_input(int keycode, t_vars *vars)
 	else if (keycode == KEY_O)
 		vars->cam->zoom = ft_dmax(vars->cam->zoom - 1.0, -24.0);
 	else if (keycode == KEY_Q)
-		vars->cam->angle += 1.0;
+		vars->cam->angle += 3.0;
 	else if (keycode == KEY_E)
-		vars->cam->angle += -1.0;
+		vars->cam->angle += -3.0;
 	else if (keycode == KEY_A)
 		vars->cam->x += -5.0;
 	else if (keycode == KEY_D)
@@ -42,8 +42,8 @@ int	manage_input(int keycode, t_vars *vars)
 	else if (keycode == KEY_W)
 		vars->cam->y += -5.0;
 	else if (keycode == KEY_C)
-	{
-		vars->cam->x = -vars->win_width / 2;
-		vars->cam->y = -vars->win_height / 2;
-	}
+		return (vars->cam->x = -vars->win_width / 2,
+			vars->cam->y = -vars->win_height / 2, 0);
+	else if(keycode == KEY_R)
+		vars->cam->angle = 45.0;
 }

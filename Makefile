@@ -26,10 +26,10 @@ all:
 	make $(NAME)
 
 %.o: %.c
-	cc -c $(FT) $(MLX) $(LIBS) -g -o2 $< -o $@
+	cc -c $(FT) $(MLX) $(LIBS) -g $< -o $@
 
 $(NAME): $(FT) $(OBJ)
-	cc $(OBJ) $(FT) $(MLX) $(LIBS) -g -o2 -o $(NAME)
+	cc $(OBJ) $(FT) $(MLX) $(LIBS) -g -o $(NAME)
 
 $(FT):
 	make -C libft
