@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 15:44:01 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/22 16:13:11 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	render_frame(t_vars *vars)
 	t_img	img;
 
 	img.vars = vars;
-	mlx_get_screen_size(vars->mlx, &(vars->win_width), &(vars->win_height));
 	img.img = mlx_new_image(vars->mlx, vars->win_width, vars->win_height);
 	img.addr = mlx_get_data_addr(img.img,
 			&(img.bits_per_pixel), &(img.line_length),
