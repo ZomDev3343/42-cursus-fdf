@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:12:22 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 15:17:22 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/22 15:43:19 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	setup_cam(t_cam *cam, t_vars *vars)
 	cam->angle = 45.0;
 	cam->zoom = 0.0;
 	cam->fov = 90.0;
-	cam->x = -vars->win_width / 3;
+	cam->x = -vars->win_width / 2;
 	cam->y = -vars->win_height / 2;
 }
 
