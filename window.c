@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:36:05 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 16:32:15 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/22 16:34:04 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int	manage_input(int keycode, t_vars *vars)
 	else if (keycode == KEY_C)
 		return (vars->cam->x = -vars->win_width / 2,
 			vars->cam->y = -vars->win_height / 2, 0);
-	else if(keycode == KEY_R)
+	else if (keycode == KEY_R)
 		vars->cam->angle = 45.0;
 }
