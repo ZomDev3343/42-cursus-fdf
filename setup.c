@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:12:22 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 15:43:19 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:51:37 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	setup_vars(t_vars **vars)
 		return ;
 	(*vars)->win_width = 800;
 	(*vars)->win_height = 600;
+	(*vars)->height_mult = 1.0;
 	(*vars)->cam = (t_cam *) ft_calloc(1, sizeof(t_cam));
 	if (!(*vars)->cam)
 		return (free(*vars));

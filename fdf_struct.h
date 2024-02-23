@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 12:26:21 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:56:12 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_vars
 	t_vector	*drawn_points;
 	double		top;
 	double		bottom;
+	double		height_mult;
 	void		*mlx;
 	void		*mlx_win;
 }	t_vars;

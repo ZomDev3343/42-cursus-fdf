@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:01:25 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 16:31:03 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:38:00 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define KEY_R 114
 # define KEY_S 115
 # define KEY_W 119
+# define KEY_X 120
+# define KEY_Z 122
 # define KEY_ESCAPE 65307
 
 #endif
