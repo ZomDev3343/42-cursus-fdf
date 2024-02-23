@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:09:23 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 17:48:44 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 13:29:38 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,16 @@ void	set_top_bottom(t_vars *vars)
 	vars->top = highest;
 }
 
-int	point_color(double height, t_vars *vars)
+int	point_color(int dz, int z, t_vars *vars)
 {
-	int		color;
 	double	ratio;
 
-	if (height > 0)
-	{
-		ratio = height / vars->top;
-		color = HIGH_COLOR * ratio;
-		return (color);
-	}
-	ratio = height / vars->bottom;
-	color = LOW_COLOR * ratio;
-	return (color);
+	if (z == 0)
+		return (WHITE);
+	if (z > 0)
+		return (ratio = ((double) z) / vars->top, HIGH_COLOR * ratio);
+	else
+		return (ratio = ((double) z) / vars->bottom, LOW_COLOR * ratio);
 }
 
 int	test_color(double ratio)

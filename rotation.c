@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:47:40 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 16:45:29 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 13:13:05 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_mat	rotx_mat(double angle)
 	return (newmat(
 			newvec(1, 0, 0),
 			newvec(0, cos(angle), -sin(angle)),
-			newvec(0, sin(angle), cos(angle))
+			newvec(0, -sin(angle), cos(angle))
 		));
 }
 

@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 16:57:26 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 12:26:21 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,14 @@ typedef struct s_plot_utils
 {
 	int	dx;
 	int	dy;
-	int	yi;
+	int	dz;
 	int	xi;
+	int	yi;
+	int	zi;
 	int	d;
 	int	x;
 	int	y;
+	int	z;
 }	t_plot_utils;
 
 #endif

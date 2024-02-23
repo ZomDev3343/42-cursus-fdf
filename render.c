@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 16:13:11 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 13:11:14 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,25 @@ static void	project_points(t_img *img, t_vars *vars)
 					-vars->cam->y,
 					0
 					));
+		point = project_point(&point);
+		point.z = vars->points[i].z;
 		vars->drawn_points[i] = point;
 	}
 	set_top_bottom(vars);
+}
+
+static void	render_points(t_img *img, t_vars *vars)
+{
+	int			i;
+	t_vector	*point;
+
+	i = -1;
+	while (++i < vars->map_size)
+	{
+		point = vars->drawn_points + i;
+		draw_pixel(img, drawinfo(point->x, point->y,
+				point_color(0, point->z, vars)));
+	}
 }
 
 /*
@@ -72,6 +88,7 @@ int	render_frame(t_vars *vars)
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
 	project_points(&img, vars);
 	render_lines(&img, vars);
+	render_points(&img, vars);
 	mlx_destroy_image(vars->mlx, img.img);
 	return (0);
 }

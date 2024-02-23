@@ -6,13 +6,13 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/22 16:29:03 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 11:43:17 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_vector	project_point(t_cam *cam, t_vector *point)
+t_vector	project_point(t_vector *point)
 {
 	t_mat		proj_mat;
 	t_vector	proj_point;
