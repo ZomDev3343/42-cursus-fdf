@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:34:35 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 13:29:12 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/23 15:53:05 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_plot_utils	newplotutils(t_vector *from, t_vector *to)
 	pu.yi = 1;
 	pu.xi = 1;
 	pu.zi = 1;
-	pu.z = ft_min(from->z, to->z);
+	pu.z = ft_max(from->z, to->z);
 	if (pu.dy < 0)
 	{
 		pu.yi = -1;
