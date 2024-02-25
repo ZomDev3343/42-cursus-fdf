@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 14:56:12 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/24 19:23:02 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_vars
 	double		top;
 	double		bottom;
 	double		height_mult;
+	int			proj_mode;
 	void		*mlx;
 	void		*mlx_win;
 }	t_vars;

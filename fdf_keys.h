@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:01:25 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 14:38:00 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/24 19:22:08 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define KEY_C 99
 # define KEY_D 100
 # define KEY_E 101
+# define KEY_F 102
 # define KEY_O 111
 # define KEY_P 112
 # define KEY_Q 113

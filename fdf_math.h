@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:39:17 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 11:43:15 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/24 19:28:17 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_vector	matrow(t_mat *mat, int rowi);
 
 t_vector	project_point(t_vector *point);
 t_vector	iso_point(t_cam *cam, t_vector *point);
+t_vector	curvlinear_point(t_cam *cam, t_vector *point);
 
 /* Rotations */
 

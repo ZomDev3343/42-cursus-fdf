@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:32:18 by truello           #+#    #+#             */
-/*   Updated: 2024/02/23 12:41:12 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/24 19:17:04 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			render_frame(t_vars *vars);
 
 void		set_top_bottom(t_vars *vars);
 int			point_color(int dz, int z, t_vars *vars);
-int			test_color(double ratio);
+
 /* Window Utils */
 
 int			close_window(t_vars *vars);

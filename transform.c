@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:36:14 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 11:43:17 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/25 20:44:03 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,25 @@ t_vector	iso_point(t_cam *cam, t_vector *point)
 	rot_mat = matmat(matmat(rotx_mat(alpha), roty_mat(beta)), rotz_mat(theta));
 	res_point = matvec(rot_mat, *point);
 	return (res_point);
+}
+
+t_vector	curvlinear_point(t_cam *cam, t_vector *point)
+{
+	t_vector	res;
+	t_mat		rot_mat;
+	double		radius;
+	double		p_dist;
+
+	radius = 180.0;
+	p_dist = sqrt(pow(point->x, 2) + pow(point->y, 2) + pow(point->z, 2));
+	if (p_dist > 0)
+	{
+		res = newvec(
+				point->x * cos(point->y),
+				point->x * -sin(point->y),
+				0);
+	}
+	else
+		res = *point;
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:36:05 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 14:52:47 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/24 19:24:11 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	manage_input(int keycode, t_vars *vars)
 	manage_camera_movements(keycode, vars);
 	if (keycode == KEY_Z)
 		vars->height_mult += 1.0;
+	else if (keycode == KEY_F)
+		vars->proj_mode = !vars->proj_mode;
 	else if (keycode == KEY_X)
 		if (vars->height_mult > 1.0)
 			vars->height_mult -= 1.0;

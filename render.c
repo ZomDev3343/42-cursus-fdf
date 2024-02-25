@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 16:00:54 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/25 20:36:49 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ static void	render_lines(t_img *img, t_vars *vars)
 	}
 }
 
+t_vector	projection(t_vars *vars, t_vector *point)
+{
+	if (!vars->proj_mode)
+		return (iso_point(vars->cam, point));
+	else
+		return (curvlinear_point(vars->cam, point));
+}
+
 static void	project_points(t_img *img, t_vars *vars)
 {
 	int			i;
@@ -46,7 +54,7 @@ static void	project_points(t_img *img, t_vars *vars)
 					vars->cam->zoom * (i / vars->map_width),
 					0
 					));
-		point = iso_point(vars->cam, &point);
+		point = projection(vars, &point);
 		point = addvec(point, newvec(
 					-vars->cam->x - ((vars->map_width + vars->map_height) / 6
 						* (25 + vars->cam->zoom)),
