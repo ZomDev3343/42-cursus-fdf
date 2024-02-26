@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:53:33 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/20 17:30:13 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:42:18 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_draw_info	add_xy_info(t_draw_info *info, int add_x, int add_y)
 	t_draw_info	res;
 
 	res.start_x = info->start_x + add_x;
-	res.start_y += info->start_y + add_y;
+	res.start_y = info->start_y + add_y;
 	res.color = info->color;
 	return (res);
 }

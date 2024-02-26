@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:36:05 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 15:31:28 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:41:43 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ int	manage_input(int keycode, t_vars *vars)
 		if (vars->height_mult > 1.0)
 			vars->height_mult -= 1.0;
 	set_top_bottom(vars);
+	return (0);
 }

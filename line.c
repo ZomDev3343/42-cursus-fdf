@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:34:35 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 15:25:08 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:43:20 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static void	draw_line_high(t_img *img, t_vector *from, t_vector *to)
 
 void	draw_line(t_img *img, t_vector *from, t_vector *to)
 {
-	if (abs(to->y - from->y) < abs(to->x - from->x))
+	if (abs((int)(to->y - from->y)) < abs((int)(to->x - from->x)))
 	{
 		if (from->x > to->x)
 			draw_line_low(img, to, from);

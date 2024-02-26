@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 14:56:15 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:41:01 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	fdf(t_vars *vars)
 	mlx_loop(vars->mlx);
 }
 
-int	main(int ac, char **av, char **env)
+int	main(int ac, char **av)
 {
 	t_vars	*vars;
 

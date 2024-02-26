@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 15:18:53 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:44:26 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static t_vector	zoom_point(t_vars *vars, t_vector *point, int i)
 	return (res);
 }
 
-static void	project_points(t_img *img, t_vars *vars)
+static void	project_points(t_vars *vars)
 {
 	int			i;
 	t_vector	point;
@@ -90,7 +90,7 @@ int	render_frame(t_vars *vars)
 			&(img.bits_per_pixel), &(img.line_length),
 			&(img.endian));
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
-	project_points(&img, vars);
+	project_points(vars);
 	render_lines(&img, vars);
 	mlx_destroy_image(vars->mlx, img.img);
 	return (0);
