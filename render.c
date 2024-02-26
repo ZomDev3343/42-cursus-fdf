@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/25 20:36:49 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 13:09:12 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,26 @@ static void	render_lines(t_img *img, t_vars *vars)
 	}
 }
 
-t_vector	projection(t_vars *vars, t_vector *point)
+static t_vector	projection(t_vars *vars, t_vector *point)
 {
 	if (!vars->proj_mode)
 		return (iso_point(vars->cam, point));
 	else
 		return (curvlinear_point(vars->cam, point));
+}
+
+static t_vector	zoom_point(t_vars *vars, t_vector *point, int i)
+{
+	t_vector	res;
+
+	res = *point;
+	if (!vars->proj_mode)
+		res = addvec(*point, newvec(
+					vars->cam->zoom * (i % vars->map_width),
+					vars->cam->zoom * (i / vars->map_width),
+					0
+					));
+	return (res);
 }
 
 static void	project_points(t_img *img, t_vars *vars)
@@ -49,11 +63,7 @@ static void	project_points(t_img *img, t_vars *vars)
 	{
 		point = vars->points[i];
 		point.z *= vars->height_mult;
-		point = addvec(point, newvec(
-					vars->cam->zoom * (i % vars->map_width),
-					vars->cam->zoom * (i / vars->map_width),
-					0
-					));
+		point = zoom_point(vars, &point, i);		
 		point = projection(vars, &point);
 		point = addvec(point, newvec(
 					-vars->cam->x - ((vars->map_width + vars->map_height) / 6
