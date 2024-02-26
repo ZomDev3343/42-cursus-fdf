@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:09:23 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 15:01:30 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:47:14 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	set_top_bottom(t_vars *vars)
 	double	lowest;
 
 	i = -1;
-	highest = vars->points[0].z;
-	lowest = vars->points[0].z;
+	highest = 1.0;
+	lowest = -1.0;
 	while (++i < vars->map_size)
 	{
 		if (vars->points[i].z > highest)
