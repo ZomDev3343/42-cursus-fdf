@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:36:05 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/24 19:24:11 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:31:28 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	manage_camera_movements(int keycode, t_vars *vars)
 		vars->cam->y += -5.0;
 	else if (keycode == KEY_C)
 		return (vars->cam->x = -vars->win_width / 2,
-			vars->cam->y = -vars->win_height / 2, 0);
+			vars->cam->y = -vars->win_height / 2, (void) 0);
 	else if (keycode == KEY_R)
 		vars->cam->angle = 45.0;
 }
@@ -58,4 +58,5 @@ int	manage_input(int keycode, t_vars *vars)
 	else if (keycode == KEY_X)
 		if (vars->height_mult > 1.0)
 			vars->height_mult -= 1.0;
+	set_top_bottom(vars);
 }

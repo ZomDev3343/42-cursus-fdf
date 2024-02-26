@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:11:00 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/21 12:03:11 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 14:56:15 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	fdf(t_vars *vars)
 			vars->win_height, "FDF");
 	if (!vars->mlx_win)
 		return ;
+	set_top_bottom(vars);
 	put_hooks(vars);
 	mlx_loop(vars->mlx);
 }

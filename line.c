@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:34:35 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/23 15:53:05 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:25:08 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_plot_utils	newplotutils(t_vector *from, t_vector *to)
 	pu.yi = 1;
 	pu.xi = 1;
 	pu.zi = 1;
-	pu.z = ft_max(from->z, to->z);
+	pu.z = from->z;
 	if (pu.dy < 0)
 	{
 		pu.yi = -1;
@@ -52,7 +52,7 @@ static void	draw_line_low(t_img *img, t_vector *from, t_vector *to)
 	while (++pu.x < to->x)
 	{
 		draw_pixel(img, drawinfo(pu.x, pu.y,
-				point_color(pu.dz, pu.z, img->vars)));
+			point_color(pu.z, img->vars)));
 		if (pu.d > 0)
 		{
 			pu.y = pu.y + pu.yi;
@@ -60,8 +60,8 @@ static void	draw_line_low(t_img *img, t_vector *from, t_vector *to)
 		}
 		else
 			pu.d += 2 * pu.dy;
-		if (pu.dz > 0)
-			pu.z++;
+		if (pu.dz < 0)
+			pu.z += pu.zi;
 	}
 }
 
@@ -76,7 +76,7 @@ static void	draw_line_high(t_img *img, t_vector *from, t_vector *to)
 	while (++pu.y < to->y)
 	{
 		draw_pixel(img, drawinfo(pu.x, pu.y,
-				point_color(pu.dz, pu.z, img->vars)));
+				point_color(pu.z, img->vars)));
 		if (pu.d > 0)
 		{
 			pu.x += pu.xi;
@@ -85,7 +85,7 @@ static void	draw_line_high(t_img *img, t_vector *from, t_vector *to)
 		else
 			pu.d += 2 * pu.dx;
 		if (pu.dz > 0)
-			pu.z++;
+			pu.z += pu.zi;
 	}
 }
 

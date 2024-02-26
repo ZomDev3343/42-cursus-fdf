@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 13:09:12 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/26 15:18:53 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,9 @@ static void	project_points(t_img *img, t_vars *vars)
 					0
 					));
 		point = project_point(&point);
-		point.z = vars->points[i].z;
+		point.z = vars->points[i].z * vars->height_mult;
 		vars->drawn_points[i] = point;
 	}
-	set_top_bottom(vars);
 }
 
 /*
