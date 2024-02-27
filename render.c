@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/27 11:37:50 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:48:01 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_vector	projection(t_vars *vars, t_vector *point)
 	if (!vars->proj_mode)
 		return (iso_point(vars->cam, point));
 	else
-		return (curvlinear_point(vars->cam, point));
+		return (curvlinear_point(point));
 }
 
 static t_vector	zoom_point(t_vars *vars, t_vector *point, int i)
