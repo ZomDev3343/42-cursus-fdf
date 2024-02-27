@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:34:35 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 15:43:20 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:37:02 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	draw_line_low(t_img *img, t_vector *from, t_vector *to)
 	while (++pu.x < to->x)
 	{
 		draw_pixel(img, drawinfo(pu.x, pu.y,
-			point_color(pu.z, img->vars)));
+				point_color(pu.z, img->vars)));
 		if (pu.d > 0)
 		{
 			pu.y = pu.y + pu.yi;

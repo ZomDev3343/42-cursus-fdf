@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:25:12 by tohma             #+#    #+#             */
-/*   Updated: 2024/02/26 15:44:26 by tohma            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:37:50 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	project_points(t_vars *vars)
 	{
 		point = vars->points[i];
 		point.z *= vars->height_mult;
-		point = zoom_point(vars, &point, i);		
+		point = zoom_point(vars, &point, i);
 		point = projection(vars, &point);
 		point = addvec(point, newvec(
 					-vars->cam->x - ((vars->map_width + vars->map_height) / 6
